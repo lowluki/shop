@@ -3,6 +3,7 @@ package dev.lpa.bill;
 import dev.lpa.clothes.*;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Bill {
     private List<Item> basket;
@@ -13,10 +14,10 @@ public class Bill {
 
     public Bill(List<Item> basket,List<Item> basketOfTshirts, List<Item> basketOfPants, List<Item> basketOfHoodies, List<Item> basketOfShoes) {
         this.basket = basket;
-        this.basketOfTshirts = basketOfTshirts;
-        this.basketOfPants = basketOfPants;
-        this.basketOfHoodies = basketOfHoodies;
-        this.basketOfShoes = basketOfShoes;
+        this.basketOfTshirts = new ArrayList<>(basketOfTshirts);
+        this.basketOfPants = new ArrayList<>(basketOfPants);
+        this.basketOfHoodies = new ArrayList<>(basketOfHoodies);
+        this.basketOfShoes = new ArrayList<>(basketOfShoes);
 
     }
 
@@ -31,7 +32,7 @@ public class Bill {
         double discountsOfHoodies = 0;
         double discountsOfShoes = 0;
         double sumOfDiscounts = 0;
-        String type = null;
+        String type = "";
         for(Item b : basket) {
             if(b instanceof Tshirt) {
                 type = "T-SHIRT";
@@ -50,7 +51,7 @@ public class Bill {
                 sumOfShoes += b.getPrice();
                 basketOfShoes.add(b);
             }
-            System.out.println(String.format("%-10s - BRAND: %-15s| SIZE: %-4s| PRICE: %.2f$", type, b.getBrand(), b.getSize(), b.getPrice()));
+            b.showItem();
             System.out.println("-------------------------------------------------------");
         }
         Collections.sort(basketOfTshirts, comparator);

@@ -27,7 +27,12 @@ public class Shoes implements Item{
     }
 
     @Override
+    public String getType() {
+        return "SHOES";
+    }
+
+    @Override
     public String toString() {
-        return "Shoes: " +  brand + ", size " + size + ",  price " + price;
+        return String.format("\tSHOES:% - BRAND: %-15s| SIZE: %-4s| PRICE: %.2f$", -10, getBrand(), getSize(), getPrice());
     }
 }

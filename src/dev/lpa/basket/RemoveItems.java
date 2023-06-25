@@ -18,7 +18,8 @@ public class RemoveItems {
         List<String> itemsToRemove = new ArrayList<>();
         System.out.println("Your current basket: ");
         for(int i = 0; i < basket.size(); i++) {
-            System.out.println(basket.get(i));
+            basket.get(i).showItem(i++);
+            i++;;
         }
         System.out.println("--------------------");
         System.out.println("Which items do you want to cancel(separate them using commas): ");
@@ -26,14 +27,14 @@ public class RemoveItems {
         String cancel = scanner.nextLine();
         itemsToRemove = new ArrayList<>(Arrays.asList(cancel.split(",")));
         Collections.sort(itemsToRemove);
-        System.out.println(itemsToRemove);
         for(int i = 0; i < itemsToRemove.size(); i++) {
                 basket.remove(Integer.valueOf((String) itemsToRemove.get(i)) - 1 - j);
                 j++;
         }
         System.out.println("Now your basket is: ");
         for(int i = 0; i < basket.size(); i++) {
-            System.out.println(basket.get(i));
+            basket.get(i).showItem(i++);
+            i++;
         }
         System.out.println("--------------------");
     }

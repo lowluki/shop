@@ -20,9 +20,9 @@ public class Main {
                 1 - Add a T-shirt
                 2 - Add a pants
                 3 - Add a hoodie
-                4 - Add an accessories 
+                4 - Add an accessories
                 5 - Add shoes
-                6 - Check the bill 
+                6 - Check the bill
                 7 - Remove some item(s) from basket
                 8 - Pay and end
                 """;
@@ -85,7 +85,8 @@ public class Main {
         int counter = 1;
         List<Item> shoes = DataInitiator.listOfShoes();
         for(Item s : shoes) {
-            System.out.println(counter++ + " - " + s);
+            s.showItem(counter);
+            counter++;
         }
         addToBasket(shoes);
     }
@@ -98,7 +99,8 @@ public class Main {
         int counter = 1;
         List<Item> hoodies = DataInitiator.listOfHoodies();
         for(Item h : hoodies) {
-            System.out.println(counter++ + " - " + h);
+            h.showItem(counter);
+            counter++;
         }
         addToBasket(hoodies);
     }
@@ -107,7 +109,8 @@ public class Main {
         int counter = 1;
         List<Item> pants = DataInitiator.listOfPants();
         for(Item p : pants) {
-            System.out.println(counter++ + " - " + p);
+            p.showItem(counter);
+            counter++;
         }
         addToBasket(pants);
     }
@@ -116,7 +119,8 @@ public class Main {
         int counter = 1;
         List<Item> tshirts = DataInitiator.listOfTshirts();
         for(Item t : tshirts) {
-            System.out.println(counter++ + " - " + t);
+            t.showItem(counter);
+            counter++;
         }
       addToBasket(tshirts);
     }
@@ -129,7 +133,11 @@ public class Main {
         } else if(itemInput == 0) {
             input = "10";
         } else {
-            basket.add(items.get(itemInput - 1));
+            if(items.size() >= itemInput) {
+                basket.add(items.get(itemInput - 1));
+            }else {
+                System.out.println("The item doesn't exist\n");
+            }
         }
     }
 }

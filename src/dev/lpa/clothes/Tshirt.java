@@ -27,7 +27,7 @@ public class Tshirt implements Item{
     }
 
     @Override
-    public String toString() {
-        return "T-shirt: "+ brand + ", size " + size + ",  price " + price;
+    public String getType() {
+        return "T-SHIRT";
     }
 }

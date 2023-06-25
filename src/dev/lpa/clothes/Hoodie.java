@@ -27,7 +27,7 @@ public class Hoodie implements Item{
     }
 
     @Override
-    public String toString() {
-        return "Hoodie: " + brand + ", size " + size + ",  price " + price;
+    public String getType() {
+        return "HOODIE";
     }
 }
